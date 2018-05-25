@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text Component should accept align props 1`] = `"<p class=\\"base primary center noop \\">Jest Unit Test</p>"`;
+
+exports[`Text Component should accept transform props 1`] = `"<p class=\\"base primary left uppercase \\">Jest Unit Test</p>"`;
+
+exports[`Text Component should render standard primary text 1`] = `"<p class=\\"base primary left noop \\">Jest Unit Test</p>"`;

@@ -1,0 +1,48 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "loose": true
+      }
+    ],
+    "react",
+    "stage-3"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "babel-plugin-transform-regenerator",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    },
+    "production": {
+      "plugins": [
+        "@coco-platform/babel-plugin-import-css-module",
+        [
+          "babel-plugin-transform-runtime",
+          {
+            "helpers": true,
+            "polyfill": true,
+            "regenerator": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
+}
