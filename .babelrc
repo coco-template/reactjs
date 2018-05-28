@@ -12,7 +12,8 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "babel-plugin-transform-regenerator",
+    "transform-regenerator",
+    "syntax-dynamic-import",
     [
       "import",
       {
@@ -30,14 +31,14 @@
       "plugins": [
         "@coco-platform/babel-plugin-import-css-module",
         [
-          "babel-plugin-transform-runtime",
+          "transform-runtime",
           {
             "helpers": true,
             "polyfill": true,
             "regenerator": true
           }
         ]
-      ]
+      ]f
     },
     "test": {
       "plugins": [

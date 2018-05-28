@@ -1,8 +1,13 @@
 module.exports = {
+  transform: {
+    '\\.(jpg|jpeg|png|giff|webp|svg)$':
+      '@coco-platform/jest-tools/lib/asset-transformer.js',
+  },
   moduleFileExtensions: ['js', 'jsx', 'json'],
   moduleDirectories: ['node_modules'],
   moduleNameMapper: {
-    '\\.pcss$': 'identity-obj-proxy',
+    '\\.css$': '@coco-platform/jest-tools/lib/css-ignore.js',
+    '\\.pcss': '@coco-platform/jest-tools/lib/css-modules.js',
   },
   // Coverage report
   collectCoverageFrom: ['src/**/*.js', 'src/**/*.jsx'],

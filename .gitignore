@@ -70,7 +70,6 @@ build
 # Compilation
 # postcss modules compile
 /src/**/*.pcss.json
-/public/*.js
 /lib
 /es
 /bundle

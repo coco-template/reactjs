@@ -5,7 +5,7 @@
 ![Package Dependency](https://david-dm.org/coco-template/react-pwa.svg?style=flat)
 ![Package DevDependency](https://david-dm.org/coco-template/react-pwa/dev-status.svg?style=flat)
 
-A lite seed to develop react package.
+A lite seed to develop react application.
 
 ## Usage
 

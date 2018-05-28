@@ -114,6 +114,10 @@
     babel-types "^6.25.0"
     jest-cli "^22.4.4"
 
+"@coco-platform/jest-tools@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@coco-platform/jest-tools/-/jest-tools-0.2.0.tgz#a4ecdef9679835cd39353e9b800a03323fb5d6b7"
+
 "@coco-platform/webpack-preset@^0.2.3":
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/@coco-platform/webpack-preset/-/webpack-preset-0.2.5.tgz#18ab019817864cb1b3db011f542b54b5c522e321"
@@ -968,6 +972,10 @@ babel-plugin-syntax-async-generators@^6.5.0:
 babel-plugin-syntax-class-properties@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-class-properties/-/babel-plugin-syntax-class-properties-6.13.0.tgz#d7eb23b79a317f8543962c505b827c7d6cac27de"
+
+babel-plugin-syntax-dynamic-import@^6.18.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-dynamic-import/-/babel-plugin-syntax-dynamic-import-6.18.0.tgz#8d6a26229c83745a9982a441051572caa179b1da"
 
 babel-plugin-syntax-exponentiation-operator@^6.8.0:
   version "6.13.0"
