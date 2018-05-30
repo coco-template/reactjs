@@ -11,12 +11,14 @@ import { hot } from 'react-hot-loader';
 // internal
 import './App.pcss';
 import Gallery from './pages/Gallery';
+import History from './pages/History';
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/pwa/gallery" component={Gallery} />
+        <Route path="/pwa/history" component={History} />
         <Redirect to="/pwa/gallery" />
       </Switch>
     </BrowserRouter>
