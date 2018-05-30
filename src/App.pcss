@@ -1,28 +1,16 @@
 /* 样式覆盖 */
-:global(.main) {
+html,
+body {
+  width: 100%;
   height: 100%;
 }
 
-/* 常规布局 */
-.package {
-  min-height: 100%;
+img {
+  max-width: 100%;
 }
 
-.sider {
-  position: fixed;
-  min-height: 100%;
-  overflow: auto;
-}
-
-.content {
-  margin-left: 200px;
-}
-
-.link {
-  display: inline-block !important;
-}
-
-.menu-item {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+:global(.main) {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
 }
