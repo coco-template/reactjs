@@ -29,7 +29,6 @@
     },
     "production": {
       "plugins": [
-        "@coco-platform/babel-plugin-import-css-module",
         [
           "transform-runtime",
           {

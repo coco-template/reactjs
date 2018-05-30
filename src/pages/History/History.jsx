@@ -5,7 +5,7 @@
 
 // package
 import React, { Component } from 'react';
-import { Table, Icon, Divider } from 'antd';
+import { Table } from 'antd';
 // internal
 import styles from './History.pcss';
 

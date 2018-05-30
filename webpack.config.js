@@ -16,25 +16,35 @@ const options = {
   development: {
     entry: 'src/main.jsx',
   },
+  production: {
+    entry: 'src/main.jsx',
+  },
 };
 const externals = {
   react: 'React',
   'react-dom': 'ReactDOM',
 };
+const env = process.env.NODE_ENV || 'development';
 
 module.exports = new Promise((resolve, reject) => {
   request
     .get(address)
     .timeout(12000)
     .then((res) => res.text)
-    .then((definition) => {
-      const developmentOptions = _.assign({}, options.development, {
-        definition,
-      });
-      const developmentConfiguration = presets.development(developmentOptions);
-      const configuration = _.assign({}, developmentConfiguration, {
-        externals,
-      });
+    .then((definition) => ({ definition }))
+    .then((innerOptions) => {
+      const cocoConnectOptions = _.assign(
+        {},
+        innerOptions,
+        Reflect.get(options, env)
+      );
+      const configuration = _.assign(
+        {},
+        {
+          externals,
+        },
+        Reflect.get(presets, env)(cocoConnectOptions)
+      );
 
       resolve(configuration);
     })
