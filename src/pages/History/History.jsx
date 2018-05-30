@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import { Table } from 'antd';
 // internal
 import styles from './History.pcss';
+import Loading from '../../components/Loading';
 
 // scope
 const columns = [

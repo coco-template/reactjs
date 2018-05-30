@@ -1,0 +1,104 @@
+.container {
+  display: block;
+  padding-top: 12px;
+  padding-bottom: 8px;
+  text-align: center;
+}
+
+.spinner {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+}
+
+.cube {
+  position: absolute;
+  top: 16px;
+  left: 26px;
+  width: 20px;
+  height: 20px;
+  animation: cubemove 2s infinite ease-in-out;
+}
+
+.cube-blue {
+  composes: cube;
+  background-color: #1f8dd6;
+}
+
+.cube-green {
+  composes: cube;
+  background-color: #2abb9b;
+  animation-delay: -0.5s;
+}
+
+.cube-pink {
+  composes: cube;
+  background-color: #fc797a;
+  animation-delay: -1s;
+}
+
+.cube-yellow {
+  composes: cube;
+  background-color: #fbb44c;
+  animation-delay: -1.5s;
+}
+
+.message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  text-align: center;
+  animation: tada 1s infinite ease-in-out both;
+}
+
+@keyframes cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+  }
+
+  50% {
+    transform: translateX(42px) translateY(42px) rotate(-179deg);
+  }
+
+  50.1% {
+    transform: translateX(42px) translateY(42px) rotate(-180deg);
+  }
+
+  75% {
+    transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes tada {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
