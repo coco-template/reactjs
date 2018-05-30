@@ -38,7 +38,7 @@
             "regenerator": true
           }
         ]
-      ]f
+      ]
     },
     "test": {
       "plugins": [

@@ -14,7 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/coco-template/react-pwa.git"
   },
-  "keywords": ["react", "storybook", "package"],
+  "keywords": [
+    "react",
+    "storybook",
+    "package"
+  ],
   "author": "huang.jian <hjj491229492@hotmail.com>",
   "contributors": [
     {
@@ -34,7 +38,7 @@
   "devDependencies": {
     "@coco-platform/babel-plugin-import-css-module": "^0.3.0",
     "@coco-platform/jest-tools": "^0.2.0",
-    "@coco-platform/webpack-preset": "^0.2.3",
+    "@coco-platform/webpack-preset": "^0.2.10",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
@@ -62,11 +66,13 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.4",
     "koa-connect": "^2.0.1",
+    "lodash": "^4.17.10",
     "npm-run-all": "^4.1.3",
     "postcss-cli": "^5.0.0",
     "postcss-modules": "^1.1.0",
     "prettier": "^1.12.1",
     "pretty-quick": "^1.5.0",
+    "superagent": "^3.8.3",
     "webpack-serve": "^1.0.2",
     "yamljs": "^0.3.0"
   },
@@ -77,6 +83,8 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^4.2.0",
-    "react-router-dom": "^4.2.2"
+    "react-motion": "^0.5.2",
+    "react-router-dom": "^4.2.2",
+    "rxjs": "^6.2.0"
   }
 }
