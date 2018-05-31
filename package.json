@@ -39,7 +39,7 @@
   "devDependencies": {
     "@coco-platform/babel-plugin-import-css-module": "^0.3.0",
     "@coco-platform/jest-tools": "^0.2.0",
-    "@coco-platform/webpack-preset": "^0.2.10",
+    "@coco-platform/webpack-preset": "^0.2.12",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
@@ -74,6 +74,7 @@
     "prettier": "^1.12.1",
     "pretty-quick": "^1.5.0",
     "superagent": "^3.8.3",
+    "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4",
     "webpack-serve": "^1.0.2",
     "yamljs": "^0.3.0"
