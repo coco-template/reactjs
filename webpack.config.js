@@ -4,14 +4,12 @@
  */
 
 // dependency
+const path = require('path');
+const fs = require('fs');
 const presets = require('@coco-platform/webpack-preset');
 const _ = require('lodash');
-const request = require('superagent');
 
 // scope
-const address =
-  // eslint-disable-next-line max-len
-  'https://gist.githubusercontent.com/huang-xiao-jian/a66ff80a5c811066dccb11811b734a49/raw/7e72c26a60158c5d13bf5f59c86881b3d07ddc08/bootcdn.externals.stable.yml';
 const options = {
   development: {
     entry: 'src/main.jsx',
@@ -25,28 +23,12 @@ const externals = {
   'react-dom': 'ReactDOM',
 };
 const env = process.env.NODE_ENV || 'development';
+const definition = fs.readFileSync(
+  path.resolve(__dirname, 'bootcdn.stable.yml'),
+  { encoding: 'utf8' }
+);
+const argument = _.assign({ definition }, Reflect.get(options, env));
+const preset = Reflect.get(presets, env);
+const configuration = _.assign({ externals }, preset(argument));
 
-module.exports = new Promise((resolve, reject) => {
-  request
-    .get(address)
-    .timeout(12000)
-    .then((res) => res.text)
-    .then((definition) => ({ definition }))
-    .then((innerOptions) => {
-      const cocoConnectOptions = _.assign(
-        {},
-        innerOptions,
-        Reflect.get(options, env)
-      );
-      const configuration = _.assign(
-        {},
-        {
-          externals,
-        },
-        Reflect.get(presets, env)(cocoConnectOptions)
-      );
-
-      resolve(configuration);
-    })
-    .catch((err) => reject(err));
-});
+module.exports = configuration;
