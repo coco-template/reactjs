@@ -10,7 +10,7 @@
     "pwa": "workbox injectManifest workbox.config.js ",
     "afterclean": "rm static.tar.gz",
     "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
-    "deploy": "ansible babycherry -m unarchive -a \"src=static.tar.gz dest=/usr/share/nginx/pwa.babycherry.cn;\"",
+    "deploy": "ansible babycherry -m unarchive -a \"src=static.tar.gz dest=/usr/share/nginx/pwa.babycherry.cn\"",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
