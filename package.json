@@ -5,8 +5,12 @@
   "scripts": {
     "precommit": "pretty-quick --staged",
     "dev": "NODE_ENV=development webpack-serve",
-    "build": "NODE_ENV=production webpack",
     "clean": "rm -rf dist",
+    "build": "NODE_ENV=production webpack",
+    "pwa": "workbox injectManifest workbox.config.js ",
+    "afterclean": "rm static.tar.gz",
+    "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
+    "deploy": "ansible babycherry -m unarchive -a \"src=static.tar.gz dest=/usr/share/nginx/pwa.babycherry.cn;\"",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -74,7 +78,9 @@
     "pretty-quick": "^1.5.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4",
+    "webpack-pwa-manifest": "^3.6.2",
     "webpack-serve": "^1.0.2",
+    "workbox-cli": "^3.2.0",
     "yamljs": "^0.3.0"
   },
   "dependencies": {
