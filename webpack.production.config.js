@@ -9,7 +9,6 @@ const path = require('path');
 const fs = require('fs');
 const presets = require('@coco-platform/webpack-preset');
 const PWAManifestPlugin = require('webpack-pwa-manifest');
-const InjectSWPlugin = require('@coco-platform/webpack-plugin-inject-service-worker');
 const InlinePlugin = require('@coco-platform/webpack-plugin-inline');
 // scope
 // scope
@@ -28,11 +27,7 @@ const argument = { definition, ...options };
 const configuration = { externals, ...presets.production(argument) };
 const productionPlugins = [
   new InlinePlugin({
-    files: ['public/preload.css'],
-  }),
-  new InjectSWPlugin({
-    swPath: '/sw.js',
-    swDelay: 100,
+    files: ['public/preload.css', 'public/register-sw.js'],
   }),
   new PWAManifestPlugin({
     short_name: '么么哒',

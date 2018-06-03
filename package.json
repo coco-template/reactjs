@@ -1,7 +1,7 @@
 {
   "name": "react-pwa",
   "version": "0.2.0",
-  "description": "A lite seed to develop react packages.",
+  "description": "A lite seed to develop wep APP with full PWA support.",
   "scripts": {
     "precommit": "pretty-quick --staged",
     "dev": "NODE_ENV=development webpack-serve",
@@ -40,9 +40,7 @@
   },
   "homepage": "https://github.com/coco-template/react-pwa#readme",
   "devDependencies": {
-    "@coco-platform/babel-plugin-import-css-module": "^0.3.0",
     "@coco-platform/jest-tools": "^0.2.0",
-    "@coco-platform/webpack-plugin-inject-service-worker": "^0.2.0",
     "@coco-platform/webpack-plugin-inline": "^0.2.0",
     "@coco-platform/webpack-preset": "^0.2.15",
     "babel-cli": "^6.26.0",

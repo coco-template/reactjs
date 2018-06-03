@@ -11,24 +11,34 @@ importScripts(
   'https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js'
 );
 
-workbox.setConfig({
-  debug: true,
-});
+// eslint-disable-next-line no-restricted-globals
+if (self.location.origin.hostname === 'localhost') {
+  workbox.setConfig({
+    debug: true,
+  });
+
+  workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
+}
+
+// set cache details
 workbox.core.setCacheNameDetails({
   prefix: 'babycherry',
   suffix: 'v1',
 });
-workbox.core.setLogLevel(workbox.core.LOG_LEVELS.debug);
 
-// route strategy
+// cache CDN resources
 workbox.routing.registerRoute(
   /^https:\/\/cdn\.bootcss\.com./,
   workbox.strategies.staleWhileRevalidate({
     cacheName: 'CDN',
   })
 );
+
+// cache fallback navigator
 workbox.routing.registerNavigationRoute('/index.html', {
   whitelist: [/^\/pwa/],
   blacklist: [/\.(js|css|jpe?g|png|gif|pdf)$/],
 });
+
+// cache static resources
 workbox.precaching.precacheAndRoute([]);
