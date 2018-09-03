@@ -52,6 +52,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@coco-platform/webpack-plugin-inline": "^0.2.0",
+    "@coco-platform/webpack-preset": "^0.6.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-plugin-import": "^1.7.0",
