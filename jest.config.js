@@ -1,5 +1,6 @@
 module.exports = {
   transform: {
+    '^.+\\.jsx?$': 'babel-jest',
     '\\.(jpg|jpeg|png|giff|webp|svg)$':
       '@coco-platform/jest-tools/lib/asset-transformer.js',
   },
