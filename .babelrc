@@ -1,19 +1,17 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
         "modules": false,
         "loose": true
       }
     ],
-    "react",
-    "stage-3"
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-class-properties",
-    "transform-regenerator",
-    "syntax-dynamic-import",
+    "@babel/plugin-transform-regenerator",
+    "@babel/plugin-syntax-dynamic-import",
     [
       "import",
       {
@@ -21,27 +19,31 @@
         "libraryDirectory": "es",
         "style": "css"
       }
-    ]
+    ],
+    "@babel/plugin-syntax-import-meta",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-json-strings"
   ],
   "env": {
     "development": {
-      "plugins": ["react-hot-loader/babel"]
+      "plugins": [
+        "react-hot-loader/babel"
+      ]
     },
     "production": {
       "plugins": [
         [
-          "transform-runtime",
+          "@babel/plugin-transform-runtime",
           {
             "helpers": true,
-            "polyfill": true,
-            "regenerator": true
+            "corejs": 2
           }
         ]
       ]
     },
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs"
+        "@babel/plugin-transform-modules-commonjs"
       ]
     }
   }
