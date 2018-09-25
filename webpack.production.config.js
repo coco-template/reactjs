@@ -11,20 +11,19 @@ const presets = require('@coco-platform/webpack-preset');
 const PWAManifestPlugin = require('webpack-pwa-manifest');
 const InlinePlugin = require('@coco-platform/webpack-plugin-inline');
 // scope
-// scope
+const bootcdn = path.resolve(__dirname, 'bootcdn.stable.yml');
+const readFileOptions = {
+  encoding: 'utf8',
+};
 const options = {
   entry: 'src/main.jsx',
+  definition: fs.readFileSync(bootcdn, readFileOptions),
 };
 const externals = {
   react: 'React',
   'react-dom': 'ReactDOM',
 };
-const definition = fs.readFileSync(
-  path.resolve(__dirname, 'bootcdn.stable.yml'),
-  { encoding: 'utf8' }
-);
-const argument = { definition, ...options };
-const configuration = { externals, ...presets.production(argument) };
+const configuration = { ...presets.production(options), externals };
 const productionPlugins = [
   new InlinePlugin({
     files: ['public/preload.css', 'public/register-sw.js'],
