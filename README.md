@@ -5,8 +5,6 @@
 ![Package Dependency](https://david-dm.org/coco-template/react-pwa.svg?style=flat)
 ![Package DevDependency](https://david-dm.org/coco-template/react-pwa/dev-status.svg?style=flat)
 
-A lite seed to develop react pwa application.
-
 ## Usage
 
 ```shell
@@ -17,7 +15,7 @@ npm run dev;
 npm run test;
 
 # production compile
-npm run compile;
+npm run build;
 ```
 
 ## Contact
