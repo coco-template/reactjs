@@ -25,6 +25,7 @@ const lastImageIndex = images.length - 1;
 
 class Gallery extends Component {
   static propTypes = {};
+
   static defaultProps = {};
 
   state = {
