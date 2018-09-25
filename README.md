@@ -1,4 +1,4 @@
-# react-pwa
+# react-web
 
 A seed to develop react pwa application.
 

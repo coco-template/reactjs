@@ -1,5 +1,5 @@
 {
-  "name": "react-pwa",
+  "name": "react-web",
   "version": "0.3.0",
   "description": "A lite seed to develop wep APP with full PWA support.",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coco-template/react-pwa.git"
+    "url": "git+https://github.com/coco-template/react-web.git"
   },
   "keywords": [
     "react",
@@ -34,9 +34,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coco-template/react-pwa/issues"
+    "url": "https://github.com/coco-template/react-web/issues"
   },
-  "homepage": "https://github.com/coco-template/react-pwa#readme",
+  "homepage": "https://github.com/coco-template/react-web#readme",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
