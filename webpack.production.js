@@ -1,19 +1,25 @@
 /**
- * @description - webpack development configuration
- * @author - huang.jian
+ * @description - declare webpack production configuration
+ * @author - huang.jian <hjj491229492@hotmail.com>
  */
 
+/* eslint-disable import/no-extraneous-dependencies */
 // packages
 const path = require('path');
 const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
+const HtmlMinifyPlugin = require('@coco-platform/webpack-plugin-html-minify');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   target: 'web',
   entry: {
     main: path.resolve(process.cwd(), './src/main.jsx'),
@@ -21,8 +27,8 @@ module.exports = {
   output: {
     path: path.resolve(process.cwd(), 'dist', 'client'),
     publicPath: '/',
-    filename: 'static/script/[name].bundle.js',
-    chunkFilename: 'static/script/[id]_[name].chunk.js',
+    filename: 'static/script/[name].[chunkhash:8].js',
+    chunkFilename: 'static/script/[id]_[name]_[chunkhash:8].chunk.js',
     crossOriginLoading: 'anonymous',
   },
   externals: {
@@ -30,15 +36,22 @@ module.exports = {
     'react-dom': 'ReactDOM',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx'],
+    extensions: [
+      '.js',
+      '.jsx',
+      '.mjs',
+      '.json',
+      '.ts',
+      '.tsx',
+      '.web.js',
+      '.web.jsx',
+    ],
     alias: {},
   },
   module: {
-    noParse: [/\.min\.js/],
     rules: [
       {
         test: /\.(js|jsx|mjs|mjsx|ts|tsx)$/,
-        exclude: /node_modules/,
         include: path.resolve(process.cwd(), 'src'),
         use: [
           {
@@ -53,7 +66,7 @@ module.exports = {
         test: /\.p?css$/,
         exclude: /node_modules/,
         use: [
-          require.resolve('style-loader'),
+          MiniCssExtractPlugin.loader,
           {
             loader: require.resolve('css-loader'),
             options: {
@@ -78,7 +91,7 @@ module.exports = {
           path.resolve(process.cwd(), 'public'),
         ],
         use: [
-          { loader: require.resolve('style-loader') },
+          MiniCssExtractPlugin.loader,
           { loader: require.resolve('css-loader') },
         ],
       },
@@ -96,29 +109,51 @@ module.exports = {
     ],
   },
   plugins: [
+    new ProgressBarPlugin(),
     new CaseSensitivePathsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/stylesheet/[name].[hash].css',
+      chunkFilename: 'static/stylesheet/[id].[hash].chunk.css',
+    }),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: path.resolve(process.cwd(), 'public', 'index.html'),
       favicon: path.join(process.cwd(), 'public', 'favicon.ico'),
     }),
+    new CompressionPlugin({
+      test: /\.(js|css|html)$/,
+      threshold: 1024,
+      minRatio: 0.85,
+    }),
+
     new InjectExternalPlugin({
       env: 'development',
       definition: 'bootcdn.stable.yml',
     }),
+
+    new HtmlMinifyPlugin(),
     new BundleAnalyzerPlugin({
-      analyzerMode: 'server',
-      openAnalyzer: false,
+      analyzerMode: 'static',
       reportFilename: '../analyzer/index.html',
+      openAnalyzer: false,
     }),
   ],
   optimization: {
     runtimeChunk: {
       name: 'manifest',
     },
+    minimize: true,
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   node: {
     dgram: 'empty',
     fs: 'empty',
