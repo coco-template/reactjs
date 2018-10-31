@@ -161,7 +161,7 @@ module.exports = {
       swDest: 'sw.js',
       importWorkboxFrom: 'local',
       importsDirectory: 'workbox',
-      exclude: [/\.gz$/],
+      exclude: [/\.gz$/, /\.map$/],
       globPatterns: ['**/*.{png,ico,html,json,jpg,js,css}'],
     }),
     new HtmlMinifyPlugin(),
