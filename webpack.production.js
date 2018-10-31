@@ -130,7 +130,7 @@ module.exports = {
       minRatio: 0.85,
     }),
     new InjectExternalPlugin({
-      env: 'development',
+      env: 'production',
       definition: 'bootcdn.stable.yml',
     }),
     new PWAManifestPlugin({
