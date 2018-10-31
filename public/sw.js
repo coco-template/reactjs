@@ -6,11 +6,6 @@
 /* eslint-env worker */
 /* global workbox */
 
-// import workbox library
-importScripts(
-  'https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js'
-);
-
 // eslint-disable-next-line no-restricted-globals
 if (self.location.origin.hostname === 'localhost') {
   workbox.setConfig({
@@ -22,13 +17,13 @@ if (self.location.origin.hostname === 'localhost') {
 
 // set cache details
 workbox.core.setCacheNameDetails({
-  prefix: 'babycherry',
+  prefix: 'baby',
   suffix: 'v1',
 });
 
 // cache CDN resources
 workbox.routing.registerRoute(
-  /^https:\/\/cdn\.bootcss\.com./,
+  /^https:\/\/unpkg\.com/,
   workbox.strategies.staleWhileRevalidate({
     cacheName: 'CDN',
   })
@@ -41,4 +36,4 @@ workbox.routing.registerNavigationRoute('/index.html', {
 });
 
 // cache static resources
-workbox.precaching.precacheAndRoute([]);
+workbox.precaching.precacheAndRoute(self.__precacheManifest);

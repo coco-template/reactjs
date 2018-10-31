@@ -16,7 +16,10 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
 const HtmlMinifyPlugin = require('@coco-platform/webpack-plugin-html-minify');
+const InlinePlugin = require('@coco-platform/webpack-plugin-inline');
+const PWAManifestPlugin = require('webpack-pwa-manifest');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { InjectManifest } = require('workbox-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -126,13 +129,45 @@ module.exports = {
       threshold: 1024,
       minRatio: 0.85,
     }),
-
     new InjectExternalPlugin({
       env: 'development',
       definition: 'bootcdn.stable.yml',
     }),
-
+    new PWAManifestPlugin({
+      short_name: '紫苑花开',
+      name: 'The First Web APP',
+      description: '🤗抱抱我家智障宝宝🤗',
+      display: 'standalone',
+      background_color: '#2196F3',
+      theme_color: '#2196F3',
+      start_url: '/pwa/history',
+      ios: true,
+      icons: [
+        {
+          src: path.resolve('public/android.png'),
+          sizes: [256, 512, 768, 1025],
+          destination: 'android',
+        },
+        {
+          src: path.resolve('public/ios.png'),
+          sizes: [256, 512, 768, 1025],
+          ios: true,
+          destination: 'ios',
+        },
+      ],
+    }),
+    new InjectManifest({
+      swSrc: 'public/sw.js',
+      swDest: 'sw.js',
+      importWorkboxFrom: 'local',
+      importsDirectory: 'workbox',
+      exclude: [/\.gz$/],
+      globPatterns: ['**/*.{png,ico,html,json,jpg,js,css}'],
+    }),
     new HtmlMinifyPlugin(),
+    new InlinePlugin({
+      files: ['public/register-sw.js'],
+    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       reportFilename: '../analyzer/index.html',
