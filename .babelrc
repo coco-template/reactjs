@@ -10,40 +10,34 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-transform-regenerator",
+    "@babel/plugin-proposal-class-properties",
     "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-regenerator",
     [
-      "import",
+      "@babel/plugin-transform-runtime",
+      {
+        "helpers": true,
+        "corejs": 2
+      }
+    ],
+    [
+      "babel-plugin-import",
       {
         "libraryName": "antd",
         "libraryDirectory": "es",
         "style": "css"
       }
-    ],
-    "@babel/plugin-syntax-import-meta",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-json-strings"
+    ]
   ],
   "env": {
-    "development": {
-      "plugins": [
-        "react-hot-loader/babel"
-      ]
-    },
-    "production": {
-      "plugins": [
-        [
-          "@babel/plugin-transform-runtime",
-          {
-            "helpers": true,
-            "corejs": 2
-          }
-        ]
-      ]
-    },
     "test": {
       "plugins": [
         "@babel/plugin-transform-modules-commonjs"
+      ]
+    },
+    "development": {
+      "plugins": [
+        "react-hot-loader/babel"
       ]
     }
   }
