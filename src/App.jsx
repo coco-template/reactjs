@@ -22,7 +22,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/pwa/history" component={LazyHistory} />
-        <Redirect to="/pwa/gallery" />
+        <Redirect to="/pwa/history" />
       </Switch>
     </BrowserRouter>
   );

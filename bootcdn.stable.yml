@@ -1,19 +1,12 @@
 # use bootcdn.cn as external resources host
-library:
-  - name: 'web-animations-js'
-    linkage: 'https://unpkg.com/web-animations-js@2.3.1/web-animations.min.js'
 environment:
   development:
-    - name: 'babel-polyfill'
-      linkage: 'https://cdn.bootcss.com/babel-polyfill/6.26.0/polyfill.js'
     - name: 'react'
-      linkage: 'https://cdn.bootcss.com/react/16.4.2/umd/react.development.js'
+      linkage: 'https://unpkg.com/react@16.6.0/umd/react.development.js'
     - name: 'react-dom'
-      linkage: 'https://cdn.bootcss.com/react-dom/16.4.2/umd/react-dom.development.js'
+      linkage: 'https://unpkg.com/react-dom@16.6.0/umd/react-dom.development.js'
   production:
-    - name: 'babel-polyfill'
-      linkage: 'https://cdn.bootcss.com/babel-polyfill/6.26.0/polyfill.min.js'
     - name: 'react'
-      linkage: 'https://cdn.bootcss.com/react/16.4.2/umd/react.production.min.js'
+      linkage: 'https://unpkg.com/react@16.6.0/umd/react.production.min.js'
     - name: 'react-dom'
-      linkage: 'https://cdn.bootcss.com/react-dom/16.4.2/umd/react-dom.production.min.js'
+      linkage: 'https://unpkg.com/react-dom@16.6.0/umd/react-dom.production.min.js'
