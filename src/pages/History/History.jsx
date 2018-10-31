@@ -59,6 +59,7 @@ const history = [
 
 class History extends Component {
   static propTypes = {};
+
   static defaultProps = {};
 
   render() {
