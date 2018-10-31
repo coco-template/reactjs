@@ -51,7 +51,7 @@
     "@babel/preset-react": "^7.0.0",
     "@coco-platform/jest-tools": "^0.3.0",
     "@coco-platform/webpack-plugin-html-minify": "^0.2.0",
-    "@coco-platform/webpack-plugin-inject-external": "^0.7.1",
+    "@coco-platform/webpack-plugin-inject-external": "^0.7.2",
     "@coco-platform/webpack-plugin-inline": "^0.2.0",
     "@coco-platform/webpack-preset": "^1.0.0-2",
     "autoprefixer": "^9.3.1",
@@ -108,7 +108,7 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.1.2",
-    "antd": "^3.10.3",
+    "antd": "3.8.4",
     "prop-types": "^15.6.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
