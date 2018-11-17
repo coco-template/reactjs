@@ -64,6 +64,7 @@
     "compression-webpack-plugin": "^2.0.0",
     "coveralls": "^3.0.2",
     "css-loader": "^1.0.1",
+    "cz-conventional-changelog": "2.1.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.8.0",
@@ -116,5 +117,10 @@
     "react-loadable": "^5.4.0",
     "react-router-dom": "^4.2.2",
     "rxjs": "^6.3.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
