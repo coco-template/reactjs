@@ -33,3 +33,17 @@ rules:
   max-len:
     - error
     - code: 120
+  # 以下规则完全信任prettier的输出
+  comma-dangle: off
+  react/sort-comp: off
+  function-paren-newline: off
+  object-curly-newline: off
+  no-confusing-arrow: off
+settings:
+  'import/resolver':
+    node:
+      extensions:
+        - .js
+        - .jsx
+        - .ts
+        - .tsx
