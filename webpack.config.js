@@ -16,7 +16,7 @@ module.exports = {
   mode: 'development',
   target: 'web',
   entry: {
-    main: path.resolve(process.cwd(), './src/main.jsx'),
+    main: path.resolve(process.cwd(), './src/main.tsx'),
   },
   output: {
     path: path.resolve(process.cwd(), 'dist', 'client'),
