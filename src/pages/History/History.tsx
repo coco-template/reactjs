@@ -6,11 +6,14 @@
 // package
 import React, { Component } from 'react';
 import { Table } from 'antd';
+import { ColumnProps } from 'antd/lib/table';
+
 // internal
 import styles from './History.pcss';
+import { HistoryRecord } from './History.interface';
 
 // scope
-const columns = [
+const columns: Array<ColumnProps<HistoryRecord>> = [
   {
     title: '姓名',
     dataIndex: 'name',
@@ -24,7 +27,7 @@ const columns = [
     dataIndex: 'address',
   },
 ];
-const history = [
+const history: HistoryRecord[] = [
   {
     key: '1',
     name: 'John Brown',

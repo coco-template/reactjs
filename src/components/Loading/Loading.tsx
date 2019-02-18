@@ -4,12 +4,13 @@
  */
 
 // package
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { FunctionComponent } from 'react';
+
 // internal
 import styles from './Loading.pcss';
+import { LoadingProps } from './Loading.interface';
 
-const Loading = (props) => {
+const Loading: FunctionComponent<LoadingProps> = (props) => {
   const { message } = props;
 
   return (
@@ -25,9 +26,6 @@ const Loading = (props) => {
   );
 };
 
-Loading.propTypes = {
-  message: PropTypes.string,
-};
 Loading.defaultProps = {
   message: 'Loading....',
 };
