@@ -57,7 +57,6 @@ module.exports = {
           {
             loader: require.resolve('css-loader'),
             options: {
-              root: path.resolve(process.cwd(), 'src'),
               modules: true,
               importLoaders: 1,
               localIdentName: '[name]__[local]__[hash:base64:5]',
@@ -126,5 +125,8 @@ module.exports = {
     crypto: 'empty',
     tls: 'empty',
     child_process: 'empty',
+  },
+  devServer: {
+    historyApiFallback: true,
   },
 };
