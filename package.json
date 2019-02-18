@@ -3,7 +3,6 @@
   "version": "0.3.0",
   "description": "A lite seed to develop wep APP with full PWA support.",
   "scripts": {
-    "precommit": "pretty-quick --staged",
     "dev": "NODE_ENV=development webpack-dev-server --hot --inline",
     "build": "NODE_ENV=production webpack --config webpack.production.js",
     "pwa": "workbox injectManifest workbox.config.js ",
@@ -118,6 +117,11 @@
     "react-loadable": "^5.4.0",
     "react-router-dom": "^4.2.2",
     "rxjs": "^6.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "config": {
     "commitizen": {
