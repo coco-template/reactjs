@@ -4,22 +4,17 @@
  */
 
 // external
-import React, { lazy, Suspense } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import React, { lazy } from 'react';
 import { hot } from 'react-hot-loader';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 // internal
-import Loading from './components/Loading';
+import withLazySuspense from './HOC/withLazySuspense';
 import './App.pcss';
 // scope
 const LazyHistoryWrapper = lazy(() =>
   import(/* webpackChunkName: 'history' */ './pages/History')
 );
-const fallback = <Loading message="Loading" />;
-const LazyHistory = () => (
-  <Suspense fallback={fallback}>
-    <LazyHistoryWrapper />
-  </Suspense>
-);
+const LazyHistory = withLazySuspense(LazyHistoryWrapper);
 
 function App() {
   return (
