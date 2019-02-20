@@ -4,7 +4,7 @@ environment:
     - name: 'react'
       linkage: 'https://cdn.bootcss.com/react/16.8.1/umd/react.development.js'
     - name: 'react-dom'
-      linkage: 'https://cdn.bootcss.com/react-dom/16.8.1/umd/react-dom.development.js'
+      linkage: 'https://unpkg.com/@hot-loader/react-dom@16.8.2/umd/react-dom.development.js'
   production:
     - name: 'react'
       linkage: 'https://cdn.bootcss.com/react/16.8.1/umd/react.production.min.js'

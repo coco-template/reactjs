@@ -9208,20 +9208,20 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.6.0:
-  version "16.6.3"
-  resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
-  integrity sha1-j6e6aIPIUhG42i0O/v/J04JczMA=
+react-dom@^16.8.2:
+  version "16.8.2"
+  resolved "http://registry.npm.taobao.org/react-dom/download/react-dom-16.8.2.tgz#7c8a69545dd554d45d66442230ba04a6a0a3c3d3"
+  integrity sha1-fIppVF3VVNRdZkQiMLoEpqCjw9M=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
+    scheduler "^0.13.2"
 
-react-hot-loader@^4.6.5:
-  version "4.6.5"
-  resolved "http://registry.npm.taobao.org/react-hot-loader/download/react-hot-loader-4.6.5.tgz#059619c8ac2aae9c6e8178ddc2eac535093cdd2e"
-  integrity sha1-BZYZyKwqrpxugXjdwurFNQk83S4=
+react-hot-loader@^4.7.0:
+  version "4.7.0"
+  resolved "http://registry.npm.taobao.org/react-hot-loader/download/react-hot-loader-4.7.0.tgz#0ffccb931ce8435cf4a3744d2a3fd32eab1671be"
+  integrity sha1-D/zLkxzoQ1z0o3RNKj/TLqsWcb4=
   dependencies:
     fast-levenshtein "^2.0.6"
     global "^4.3.0"
@@ -9312,15 +9312,15 @@ react-test-renderer@^16.0.0-0:
     react-is "^16.6.3"
     scheduler "^0.11.2"
 
-react@^16.6.0:
-  version "16.6.3"
-  resolved "http://registry.npm.taobao.org/react/download/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
-  integrity sha1-Jdd8kZEda73SPbQecPsJTMHghxw=
+react@^16.8.2:
+  version "16.8.2"
+  resolved "http://registry.npm.taobao.org/react/download/react-16.8.2.tgz#83064596feaa98d9c2857c4deae1848b542c9c0c"
+  integrity sha1-gwZFlv6qmNnChXxN6uGEi1QsnAw=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.11.2"
+    scheduler "^0.13.2"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -9882,6 +9882,14 @@ scheduler@^0.11.2:
   version "0.11.3"
   resolved "http://registry.npm.taobao.org/scheduler/download/scheduler-0.11.3.tgz#b5769b90cf8b1464f3f3cfcafe8e3cd7555a2d6b"
   integrity sha1-tXabkM+LFGTz88/K/o4811VaLWs=
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.13.2:
+  version "0.13.2"
+  resolved "http://registry.npm.taobao.org/scheduler/download/scheduler-0.13.2.tgz#969eaee2764a51d2e97b20a60963b2546beff8fa"
+  integrity sha1-lp6u4nZKUdLpeyCmCWOyVGvv+Po=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

@@ -14,13 +14,18 @@ import './App.pcss';
 const LazyHistoryWrapper = lazy(() =>
   import(/* webpackChunkName: 'history' */ './pages/History')
 );
+const LazyDeviceWrapper = lazy(() =>
+  import(/* webpackChunkName: 'history' */ './pages/Device')
+);
 const LazyHistory = withLazySuspense(LazyHistoryWrapper);
+const LazyDevice = withLazySuspense(LazyDeviceWrapper);
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/pwa/history" component={LazyHistory} />
+        <Route path="/pwa/device" component={LazyDevice} />
         <Redirect to="/pwa/history" />
       </Switch>
     </BrowserRouter>
