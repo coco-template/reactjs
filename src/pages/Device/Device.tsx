@@ -7,14 +7,17 @@
 import React from 'react';
 import { Alert, Drawer } from 'antd';
 
+// internal
+import useDimension from '../../hooks/use-dimension';
+
 function Device() {
   const title = 'Hooks Drawer';
   const placement = 'right';
-  const witdh = 480;
-  const message = `The browser viewport width: 640, height: 1024`;
+  const { width, height } = useDimension();
+  const message = `The browser viewport width: ${width}, height: ${height}, Celebration!`;
 
   return (
-    <Drawer title={title} placement={placement} width={witdh} visible>
+    <Drawer title={title} placement={placement} width={480} visible>
       <Alert message={message} />
     </Drawer>
   );
