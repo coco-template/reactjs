@@ -7,7 +7,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
