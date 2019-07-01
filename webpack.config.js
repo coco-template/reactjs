@@ -127,5 +127,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    proxy: [
+      {
+        context: ['/data_analyze'],
+        target: 'https://github.com',
+        changeOrigin: true,
+        secure: false,
+      },
+    ],
   },
 };
