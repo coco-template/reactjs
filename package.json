@@ -1,11 +1,10 @@
 {
-  "name": "react-web",
-  "version": "0.3.0",
-  "description": "A lite seed to develop wep APP with full PWA support.",
+  "name": "reactjs",
+  "version": "0.1.0",
+  "description": "create reactive web application with full PWA support",
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --hot --inline",
     "build": "NODE_ENV=production webpack --config webpack.production.js",
-    "pwa": "workbox injectManifest workbox.config.js ",
     "clean": "rm -rf dist",
     "afterclean": "rm static.tar.gz",
     "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
@@ -14,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coco-template/react-web.git"
+    "url": "git+https://github.com/coco-template/reactjs.git"
   },
   "keywords": [
     "react",
@@ -33,9 +32,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/coco-template/react-web/issues"
+    "url": "https://github.com/coco-template/reactjs/issues"
   },
-  "homepage": "https://github.com/coco-template/react-web#readme",
+  "homepage": "https://github.com/coco-template/reactjs#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.3",
