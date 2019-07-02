@@ -22,6 +22,11 @@ npm run test;
 npm run build;
 ```
 
+## TODO
+
++ seamlessly integrate `sentry` to capture exception
++ crop images automatically
+
 ## Contact
 
 hjj491229492@hotmail.com
