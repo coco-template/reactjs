@@ -9,16 +9,5 @@ const nested = require('postcss-nested');
 const flexbugs = require('postcss-flexbugs-fixes');
 
 module.exports = {
-  plugins: [
-    flexbugs(),
-    nested(),
-    autoprefixer({
-      browsers: [
-        '>1%',
-        'last 4 versions',
-        'Firefox ESR',
-        'not ie <= 9', // React doesn't support IE8 anyway
-      ],
-    }),
-  ],
+  plugins: [flexbugs(), nested(), autoprefixer()],
 };
