@@ -1,9 +1,11 @@
 # reactjs
 
 ![Build Status](https://img.shields.io/travis/coco-template/reactjs/master.svg?style=flat)
-[![Coverage Status](https://coveralls.io/repos/github/coco-template/reactjs/badge.svg?branch=master)](https://coveralls.io/github/coco-template/reactjs?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/coco-template/reactjs.svg)](https://greenkeeper.io/)
-![Package Dependency](https://david-dm.org/coco-template/reactjs.svg?style=flat)
-![Package DevDependency](https://david-dm.org/coco-template/reactjs/dev-status.svg?style=flat)
+[![Coverage Status](https://coveralls.io/repos/github/coco-template/reactjs/badge.svg?branch=master)](https://coveralls.io/github/coco-template/reactjs?branch=master) 
+![David](https://img.shields.io/david/coco-template/reactjs.svg)
+![David](https://img.shields.io/david/dev/coco-template/reactjs.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/coco-template/reactjs.svg)](https://greenkeeper.io/)
+[![Known Vulnerabilities](https://snyk.io//test/github/coco-template/reactjs/badge.svg?targetFile=package.json)](https://snyk.io//test/github/coco-template/reactjs?targetFile=package.json)
 
 create react web application with PWA support.
 
