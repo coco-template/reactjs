@@ -9,7 +9,9 @@
     "afterclean": "rm static.tar.gz",
     "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
     "test": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -113,14 +115,15 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.3.1",
-    "antd": "3.20.0",
+    "antd": "3.20.1",
     "prop-types": "^15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-hot-loader": "^4.7.1",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^5.0.1",
-    "rxjs": "^6.4.0"
+    "rxjs": "^6.4.0",
+    "snyk": "^1.189.0"
   },
   "husky": {
     "hooks": {
@@ -132,5 +135,6 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "snyk": true
 }
