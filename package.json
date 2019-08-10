@@ -121,7 +121,7 @@
     "react-loadable": "^5.4.0",
     "react-router-dom": "^5.0.1",
     "rxjs": "^6.4.0",
-    "snyk": "^1.189.0"
+    "snyk": "^2.0.0"
   },
   "husky": {
     "hooks": {
