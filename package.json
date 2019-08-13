@@ -99,6 +99,7 @@
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
     "progress-bar-webpack-plugin": "^1.12.1",
+    "snyk": "^1.216.0",
     "style-loader": "^1.0.0",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3333",
@@ -120,8 +121,7 @@
     "react-hot-loader": "^4.7.1",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^5.0.1",
-    "rxjs": "^6.4.0",
-    "snyk": "^2.0.0"
+    "rxjs": "^6.4.0"
   },
   "husky": {
     "hooks": {
