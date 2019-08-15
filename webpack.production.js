@@ -73,9 +73,7 @@ module.exports = {
           {
             loader: require.resolve('css-loader'),
             options: {
-              modules: {
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-              },
+              root: path.resolve(process.cwd(), 'src'),
               importLoaders: 1,
             },
           },
@@ -118,16 +116,12 @@ module.exports = {
       filename: 'static/stylesheet/[name].[hash].css',
       chunkFilename: 'static/stylesheet/[id].[hash].chunk.css',
     }),
+    new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
       inject: 'body',
       template: path.resolve(process.cwd(), 'public', 'index.html'),
       favicon: path.join(process.cwd(), 'public', 'favicon.ico'),
-    }),
-    new CompressionPlugin({
-      test: /\.(js|css|html)$/,
-      threshold: 1024,
-      minRatio: 0.85,
     }),
     new InjectExternalPlugin({
       env: 'production',
@@ -164,7 +158,6 @@ module.exports = {
       exclude: [/\.gz$/, /\.map$/],
       globPatterns: ['**/*.{png,ico,html,json,jpg,js,css}'],
     }),
-    new HtmlMinifyPlugin(),
     new InlinePlugin({
       files: ['public/register-sw.js'],
     }),
@@ -186,6 +179,12 @@ module.exports = {
         sourceMap: true, // set to true if you want JS source maps
       }),
       new OptimizeCSSAssetsPlugin({}),
+      new HtmlMinifyPlugin(),
+      new CompressionPlugin({
+        test: /\.(js|css|html)$/,
+        threshold: 1024,
+        minRatio: 0.85,
+      }),
     ],
   },
   devtool: 'source-map',

@@ -56,9 +56,7 @@ module.exports = {
           {
             loader: require.resolve('css-loader'),
             options: {
-              modules: {
-                localIdentName: '[name]__[local]__[hash:base64:5]',
-              },
+              root: path.resolve(process.cwd(), 'src'),
               importLoaders: 1,
             },
           },
@@ -96,6 +94,7 @@ module.exports = {
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
       inject: 'body',
