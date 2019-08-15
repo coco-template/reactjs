@@ -11,16 +11,12 @@ import Loading from '../components/Loading';
 // scope
 const fallback = <Loading message="Loading" />;
 
-function withLazySuspense<P extends object>(LazyImport: ComponentType<P>) {
-  return (props: P) => {
-    const safeProps = props || {};
-
-    return (
-      <Suspense fallback={fallback}>
-        <LazyImport {...safeProps} />
-      </Suspense>
-    );
-  };
+function withLazySuspense<P>(LazyImport: ComponentType<P>): ComponentType<P> {
+  return (props: P) => (
+    <Suspense fallback={fallback}>
+      <LazyImport {...props} />
+    </Suspense>
+  );
 }
 
 export default withLazySuspense;
