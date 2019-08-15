@@ -56,7 +56,6 @@ module.exports = {
           {
             loader: require.resolve('css-loader'),
             options: {
-              root: path.resolve(process.cwd(), 'src'),
               importLoaders: 1,
             },
           },
