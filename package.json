@@ -71,7 +71,7 @@
     "compression-webpack-plugin": "^3.0.0",
     "coveralls": "^3.0.3",
     "css-loader": "^3.0.0",
-    "cz-conventional-changelog": "3.0.0",
+    "cz-conventional-changelog": "3.0.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^6.0.1",
@@ -99,7 +99,8 @@
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0",
     "progress-bar-webpack-plugin": "^1.12.1",
-    "style-loader": "^0.23.1",
+    "snyk": "^1.216.0",
+    "style-loader": "^1.0.0",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3333",
     "uglifyjs-webpack-plugin": "^2.1.1",
@@ -114,14 +115,13 @@
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.3.1",
-    "antd": "3.20.4",
+    "antd": "3.20.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.7.1",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^5.0.1",
-    "rxjs": "^6.4.0",
-    "snyk": "^1.189.0"
+    "rxjs": "^6.4.0"
   },
   "husky": {
     "hooks": {
