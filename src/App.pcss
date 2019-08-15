@@ -1,21 +1,9 @@
-/* 样式覆盖 */
-html,
-body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-}
+/***********************************************************************/
+/* Application Stylesheets */
+/***********************************************************************/
+@import 'stylesheets/base.pcss';
 
-img {
-  max-width: 100%;
-}
-
-:global(.main) {
-  position: static;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-}
+/***********************************************************************/
+/* Application Components Stylesheets */
+/***********************************************************************/
+@import 'components/Loading/Loading.pcss';

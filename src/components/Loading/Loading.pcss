@@ -1,18 +1,18 @@
-.container {
+.polaris {
   display: block;
   padding-top: 12px;
   padding-bottom: 8px;
   text-align: center;
 }
 
-.spinner {
+.polaris-spinner {
   position: relative;
   width: 120px;
   height: 120px;
   display: inline-block;
 }
 
-.cube {
+.polaris-cube {
   position: absolute;
   top: 16px;
   left: 26px;
@@ -21,30 +21,26 @@
   animation: cubemove 2s infinite ease-in-out;
 }
 
-.cube-blue {
-  composes: cube;
+.polaris-cube--blue {
   background-color: #1f8dd6;
 }
 
-.cube-green {
-  composes: cube;
+.polaris-cube--green {
   background-color: #2abb9b;
   animation-delay: -0.5s;
 }
 
-.cube-pink {
-  composes: cube;
+.polaris-cube--pink {
   background-color: #fc797a;
   animation-delay: -1s;
 }
 
-.cube-yellow {
-  composes: cube;
+.polaris-cube--yellow {
   background-color: #fbb44c;
   animation-delay: -1.5s;
 }
 
-.message {
+.polaris-message {
   position: absolute;
   left: 0;
   right: 0;

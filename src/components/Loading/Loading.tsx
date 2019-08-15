@@ -7,27 +7,20 @@
 import React, { FunctionComponent } from 'react';
 
 // internal
-import styles from './Loading.pcss';
 import { LoadingProps } from './Loading.interface';
 
 const Loading: FunctionComponent<LoadingProps> = (props) => {
-  const { message } = props;
-
   return (
-    <article className={styles.container}>
-      <div className={styles.spinner}>
-        <div className={styles['cube-blue']} />
-        <div className={styles['cube-green']} />
-        <div className={styles['cube-pink']} />
-        <div className={styles['cube-yellow']} />
-        <div className={styles.message}>{message}</div>
+    <article className="polaris">
+      <div className="polaris-spinner">
+        <div className="polaris-cube polaris-cube--blue" />
+        <div className="polaris-cube polaris-cube--green" />
+        <div className="polaris-cube polaris-cube--pink" />
+        <div className="polaris-cube polaris-cube--yellow" />
+        <div className="polaris-message">{props.message || 'Loading....'}</div>
       </div>
     </article>
   );
-};
-
-Loading.defaultProps = {
-  message: 'Loading....',
 };
 
 export default Loading;
