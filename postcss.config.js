@@ -10,7 +10,7 @@ const nested = require('postcss-nested');
 const flexbugs = require('postcss-flexbugs-fixes');
 const atImport = require('postcss-import');
 const atUrl = require('postcss-url');
-const PXToViewport = require('postcss-px-to-viewport');
+// const PXToViewport = require('postcss-px-to-viewport');
 
 module.exports = {
   plugins: [
@@ -22,11 +22,11 @@ module.exports = {
     nested(),
     autoprefixer(),
     /* use self own dimension */
-    PXToViewport({
-      viewportWidth: 375,
-      viewportHeight: 667,
-      unitPrecision: 5,
-      selectorBlackList: [],
-    }),
+    // PXToViewport({
+    //   viewportWidth: 375,
+    //   viewportHeight: 667,
+    //   unitPrecision: 5,
+    //   selectorBlackList: [],
+    // }),
   ],
 };
