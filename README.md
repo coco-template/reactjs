@@ -22,6 +22,18 @@ npm run test;
 npm run build;
 ```
 
+## Attention
+
+### For lower version Android, IOS compatibility, add polyfill in `index.html`:
+
+```html
+<script
+  crossorigin="anonymous"
+  integrity="sha384-Nh3J/XXlxyM3rjLEs3jwkHg5DP/zDvV7p86vEhCCFnYlYrlY7mGzUxRKm+oProPB"
+  src="https://lib.baomitu.com/babel-polyfill/7.4.4/polyfill.min.js"
+></script>
+```
+
 ## Sentry
 
 weird hack to install `@sentry/cli` only within CI:
