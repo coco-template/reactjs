@@ -121,7 +121,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-hot-loader": "^4.7.1",
+    "react-hot-loader": "^4.12.12",
     "react-loadable": "^5.4.0",
     "react-router-dom": "^5.0.1",
     "rxjs": "^6.4.0"
