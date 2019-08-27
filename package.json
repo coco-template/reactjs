@@ -52,7 +52,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@coco-platform/jest-tools": "^0.3.0",
     "@coco-platform/webpack-plugin-html-minify": "^0.2.0",
-    "@coco-platform/webpack-plugin-inject-external": "^0.7.2",
+    "@coco-platform/webpack-plugin-inject-external": "^0.8.0",
     "@coco-platform/webpack-plugin-inline": "^0.2.0",
     "@coco-platform/webpack-preset": "^1.0.0-2",
     "@commitlint/cli": "^8.0.0",
