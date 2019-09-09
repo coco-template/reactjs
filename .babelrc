@@ -18,7 +18,7 @@
       "@babel/plugin-transform-runtime",
       {
         "helpers": true,
-        "corejs": 2
+        "corejs": 3
       }
     ],
     [
