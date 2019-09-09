@@ -7,7 +7,10 @@
 import React, { lazy } from 'react';
 import { hot } from 'react-hot-loader';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
 // internal
+import { rootStore } from './configure-store';
 import withLazySuspense from './HOC/withLazySuspense';
 import './App.pcss';
 // scope
@@ -22,13 +25,15 @@ const LazyDevice = withLazySuspense(LazyDeviceWrapper);
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/pwa/history" component={LazyHistory} />
-        <Route path="/pwa/device" component={LazyDevice} />
-        <Redirect to="/pwa/history" />
-      </Switch>
-    </BrowserRouter>
+    <Provider store={rootStore}>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/pwa/history" component={LazyHistory} />
+          <Route path="/pwa/device" component={LazyDevice} />
+          <Redirect to="/pwa/history" />
+        </Switch>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

@@ -4,13 +4,19 @@
  */
 
 // package
-import React, { Component } from 'react';
-import { Table } from 'antd';
+import React, { useEffect } from 'react';
+import { Alert, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-
 // internal
-import styles from './History.pcss';
 import { HistoryRecord } from './History.interface';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../configure-store';
+import { Dispatch } from 'redux';
+import {
+  ActionTimingAction,
+  CancelTimingAction,
+  DemoActionTypes,
+} from '../../redux/demo/demo.constant';
 
 // scope
 const columns: Array<ColumnProps<HistoryRecord>> = [
@@ -60,24 +66,40 @@ const history: HistoryRecord[] = [
   },
 ];
 
-class History extends Component {
-  static propTypes = {};
+function History() {
+  // redux
+  const state = useSelector((state: AppState) => ({
+    cost: state.demo.cost,
+  }));
+  const dispatch = useDispatch<
+    Dispatch<ActionTimingAction | CancelTimingAction>
+  >();
 
-  static defaultProps = {};
+  // effects
+  useEffect(() => {
+    dispatch({
+      type: DemoActionTypes.ActiveTiming,
+    });
 
-  render() {
-    return (
-      <article className={styles.container}>
-        <Table
-          dataSource={history}
-          columns={columns}
-          pagination={false}
-          bordered
-        />
-        ;
-      </article>
-    );
-  }
+    return () => {
+      dispatch({ type: DemoActionTypes.CancelTiming });
+    };
+  }, []);
+
+  // scope
+  const message = `此页面停留 ${state.cost} 秒钟`;
+
+  return (
+    <article>
+      <Alert message={message} />
+      <Table
+        dataSource={history}
+        columns={columns}
+        pagination={false}
+        bordered
+      />
+    </article>
+  );
 }
 
 export default History;
