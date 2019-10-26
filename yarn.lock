@@ -862,16 +862,14 @@
     chalk "^2.4.1"
     html-minifier "^3.5.16"
 
-"@coco-platform/webpack-plugin-inject-external@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@coco-platform/webpack-plugin-inject-external/-/webpack-plugin-inject-external-0.8.0.tgz#21bb8a3e64503af03f55a43c3beda0a7ec6ee922"
-  integrity sha512-fDF2QWZLEO1XkPX88cOSfRtHyVugDyICIYVZMhuT6Csznm22U907W+1NGjJxwPZQXQHlgAkkmbp3tIfcOJp3yA==
+"@coco-platform/webpack-plugin-inject-external@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@coco-platform/webpack-plugin-inject-external/-/webpack-plugin-inject-external-0.9.0.tgz#1085c035913e5a49caf98519b591be8be6bba0a4"
+  integrity sha512-FKVCA1kIRJ3MMP7ylNLdB+b+IKwEcWfjNunkLmpdupGMQBaeC46iR6v+3z+ndt1cS90focTVmrgiFPw6VlvLpg==
   dependencies:
     chalk "^2.4.1"
     is-what "^3.3.1"
-    js-yaml "^3.13.1"
     node-yaml "^4.0.0"
-    snyk "^1.216.0"
 
 "@commitlint/cli@^8.0.0":
   version "8.1.0"
