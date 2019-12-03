@@ -6,6 +6,9 @@
     "dev": "NODE_ENV=development webpack-dev-server --hot --inline",
     "prebuild": "rm -rf dist",
     "build": "NODE_ENV=production webpack --config webpack.production.js",
+    "postbuild": "run-s workbox:inject workbox:copy",
+    "workbox:inject": "workbox injectManifest workbox-config.js",
+    "workbox:copy": "workbox copyLibraries dist/client/",
     "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
@@ -61,6 +64,7 @@
     "@types/react-router-dom": "^5.1.0",
     "@types/styled-components": "^4.4.0",
     "@types/webpack-env": "^1.14.0",
+    "@types/workbox-sw": "^4.3.0",
     "autoprefixer": "^9.4.8",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
@@ -110,7 +114,8 @@
     "webpack": "^4.29.5",
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0"
+    "webpack-dev-server": "^3.2.0",
+    "workbox-cli": "^4.3.1"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.6.0",
