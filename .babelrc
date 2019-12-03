@@ -28,17 +28,20 @@
         "libraryDirectory": "es",
         "style": "css"
       }
-    ]
+    ],
+    "babel-plugin-styled-components"
   ],
   "env": {
     "test": {
       "plugins": [
-        "@babel/plugin-transform-modules-commonjs"
+        "@babel/plugin-transform-modules-commonjs",
+        "babel-plugin-styled-components"
       ]
     },
     "development": {
       "plugins": [
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        "babel-plugin-styled-components"
       ]
     }
   }
