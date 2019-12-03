@@ -63,6 +63,15 @@ after production ready, mark sentry release finalized:
 }
 ```
 
+## Workbox
+
+setup service worker with workbox, a few modification needed when webpack output directory, or deploy directory(root directory by default) changed.
+
++ `workbox-config.js` - `globDirectory`, `swDest` should match output directory
++ `package.json` - script `workbox:copy` should match output directory
++ `main.tsx` - service worker path should match deploy directory
++ `service-worker.js` - import script `workbox` lib, navigation route should match deploy directory
+
 ## Contact
 
 hjj491229492@hotmail.com
