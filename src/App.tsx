@@ -18,7 +18,7 @@ const LazyHistoryWrapper = lazy(() =>
   import(/* webpackChunkName: 'history' */ './pages/History')
 );
 const LazyDeviceWrapper = lazy(() =>
-  import(/* webpackChunkName: 'history' */ './pages/Device')
+  import(/* webpackChunkName: 'device' */ './pages/Device')
 );
 const LazyHistory = withLazySuspense(LazyHistoryWrapper);
 const LazyDevice = withLazySuspense(LazyDeviceWrapper);

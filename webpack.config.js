@@ -31,7 +31,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx'],
-    alias: {},
+    alias: {
+      // resolve antd icons too big issue
+      '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
+    },
   },
   module: {
     noParse: [/\.min\.js/],

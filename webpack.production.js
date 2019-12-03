@@ -46,7 +46,10 @@ module.exports = {
       '.web.js',
       '.web.jsx',
     ],
-    alias: {},
+    alias: {
+      // resolve antd icons too big issue
+      '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
+    },
   },
   module: {
     rules: [
