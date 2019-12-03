@@ -109,8 +109,8 @@ module.exports = {
     new ProgressBarPlugin(),
     new CaseSensitivePathsPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'static/stylesheet/[name].[hash].css',
-      chunkFilename: 'static/stylesheet/[id].[hash].chunk.css',
+      filename: 'static/stylesheet/[name].[contenthash:8].css',
+      chunkFilename: 'static/stylesheet/[id].[contenthash:8].chunk.css',
     }),
     new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
