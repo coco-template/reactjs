@@ -104,7 +104,7 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.16.4",
     "pretty-quick": "^2.0.0",
-    "progress-bar-webpack-plugin": "^1.12.1",
+    "progress-bar-webpack-plugin": "^2.0.0",
     "snyk": "^1.247.1",
     "style-loader": "^1.0.0",
     "tslint": "^5.12.1",
