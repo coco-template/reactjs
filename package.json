@@ -115,7 +115,7 @@
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.0",
-    "workbox-cli": "^4.3.1"
+    "workbox-cli": "^5.0.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.6.0",
