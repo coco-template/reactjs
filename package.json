@@ -122,7 +122,7 @@
     "antd": "^3.26.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-hot-loader": "^4.12.15",
+    "react-hot-loader": "^4.12.20",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
