@@ -106,7 +106,7 @@
     "pretty-quick": "^2.0.0",
     "progress-bar-webpack-plugin": "^1.12.1",
     "snyk": "^1.247.1",
-    "style-loader": "^1.0.0",
+    "style-loader": "^1.1.4",
     "tslint": "^5.12.1",
     "typescript": "^3.3.3333",
     "uglifyjs-webpack-plugin": "^2.1.1",
