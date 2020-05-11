@@ -13,8 +13,7 @@
     "test": "jest --coverage",
     "test:watch": "jest --watch",
     "snyk-protect": "snyk protect",
-    "prepublishOnly": "npm run snyk-protect",
-    "prepare": "yarn run snyk-protect"
+    "prepublishOnly": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -58,6 +57,7 @@
     "@coco-platform/webpack-plugin-inject-external": "^0.9.0",
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
+    "@testing-library/react": "^10.0.4",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-hot-loader": "^4.1.0",
@@ -77,8 +77,6 @@
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
     "cz-conventional-changelog": "3.1.1",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.0.0",
