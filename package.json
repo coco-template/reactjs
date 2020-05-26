@@ -116,7 +116,7 @@
     "workbox-cli": "^5.0.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.6.0",
+    "@babel/runtime-corejs3": "^7.10.0",
     "antd": "^3.26.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
