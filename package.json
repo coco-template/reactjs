@@ -50,7 +50,7 @@
     "@babel/plugin-transform-regenerator": "^7.10.1",
     "@babel/plugin-transform-runtime": "^7.10.1",
     "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-react": "^7.10.1",
     "@babel/preset-typescript": "^7.3.3",
     "@coco-platform/jest-tools": "^0.3.0",
     "@coco-platform/webpack-plugin-html-minify": "^0.2.0",
