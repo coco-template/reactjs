@@ -8,15 +8,18 @@ const path = require('path');
 const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
+const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
+  .default;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'development',
   target: 'web',
+  amd: false,
+  node: false,
   entry: {
-    main: path.resolve(process.cwd(), './src/main.tsx'),
+    main: ['react-hot-loader/patch', './src/main.tsx'],
   },
   output: {
     path: path.resolve(process.cwd(), 'dist', 'client'),
@@ -97,7 +100,9 @@ module.exports = {
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
-    new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
+    new webpack.WatchIgnorePlugin({
+      paths: [/\.js$/, /\.d\.ts$/],
+    }),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -121,14 +126,6 @@ module.exports = {
     },
   },
   devtool: 'cheap-module-source-map',
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    crypto: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
   devServer: {
     historyApiFallback: true,
     host: '0.0.0.0',

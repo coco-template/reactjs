@@ -3,6 +3,4 @@
  * @author - huang.jian <hjj491229492@hotmail.com>
  */
 
-export {
-  default as UserOutline,
-} from '@ant-design/icons/lib/outline/UserOutline';
+export { default as UserOutlined } from '@ant-design/icons/lib/icons/UserOutlined';
