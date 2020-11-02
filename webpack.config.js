@@ -8,10 +8,10 @@ const path = require('path');
 const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
-  .default;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
+  .default;
 
 module.exports = {
   mode: 'development',
@@ -36,7 +36,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx'],
     alias: {
       // resolve antd icons too big issue
-      '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
+      // '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
     },
   },
   module: {
