@@ -10,6 +10,7 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
   .default;
 
@@ -19,7 +20,7 @@ module.exports = {
   amd: false,
   node: false,
   entry: {
-    main: ['react-hot-loader/patch', './src/main.tsx'],
+    main: ['./src/main.tsx'],
   },
   output: {
     path: path.resolve(process.cwd(), 'dist', 'client'),
@@ -28,16 +29,11 @@ module.exports = {
     chunkFilename: 'static/script/[id]_[name].chunk.js',
     crossOriginLoading: 'anonymous',
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-  },
+  // react-refresh need compile time react
+  externals: {},
   resolve: {
     extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx'],
-    alias: {
-      // resolve antd icons too big issue
-      // '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
-    },
+    alias: {},
   },
   module: {
     noParse: [/\.min\.js/],
@@ -51,6 +47,7 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               cacheDirectory: true,
+              plugins: ['react-refresh/babel'],
             },
           },
         ],
@@ -100,6 +97,7 @@ module.exports = {
   },
   plugins: [
     new CaseSensitivePathsPlugin(),
+    new ReactRefreshWebpackPlugin(),
     new webpack.WatchIgnorePlugin({
       paths: [/\.js$/, /\.d\.ts$/],
     }),

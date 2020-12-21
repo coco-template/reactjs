@@ -5,7 +5,6 @@
 
 // external
 import React, { lazy } from 'react';
-import { hot } from 'react-hot-loader';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -14,11 +13,11 @@ import { rootStore } from './configure-store';
 import withLazySuspense from './HOC/withLazySuspense';
 import './App.pcss';
 // scope
-const LazyHistoryWrapper = lazy(() =>
-  import(/* webpackChunkName: 'history' */ './pages/History')
+const LazyHistoryWrapper = lazy(
+  () => import(/* webpackChunkName: 'history' */ './pages/History')
 );
-const LazyDeviceWrapper = lazy(() =>
-  import(/* webpackChunkName: 'device' */ './pages/Device')
+const LazyDeviceWrapper = lazy(
+  () => import(/* webpackChunkName: 'device' */ './pages/Device')
 );
 const LazyHistory = withLazySuspense(LazyHistoryWrapper);
 const LazyDevice = withLazySuspense(LazyDeviceWrapper);
@@ -37,4 +36,4 @@ function App() {
   );
 }
 
-export default hot(module)(App);
+export default App;

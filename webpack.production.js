@@ -21,6 +21,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = {
   mode: 'production',
   target: 'web',
+  amd: false,
+  node: false,
   entry: {
     main: path.resolve(process.cwd(), './src/main.tsx'),
   },
@@ -36,20 +38,8 @@ module.exports = {
     'react-dom': 'ReactDOM',
   },
   resolve: {
-    extensions: [
-      '.js',
-      '.jsx',
-      '.mjs',
-      '.json',
-      '.ts',
-      '.tsx',
-      '.web.js',
-      '.web.jsx',
-    ],
-    alias: {
-      // resolve antd icons too big issue
-      '@ant-design/icons/lib/dist$': path.resolve('./src/antd-icons.ts'),
-    },
+    extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx'],
+    alias: {},
   },
   module: {
     rules: [
@@ -115,7 +105,6 @@ module.exports = {
       filename: 'static/stylesheet/[name].[contenthash:8].css',
       chunkFilename: 'static/stylesheet/[id].[contenthash:8].chunk.css',
     }),
-    new webpack.WatchIgnorePlugin([/\.js$/, /\.d\.ts$/]),
     new webpack.ContextReplacementPlugin(/moment\/locale$/, /zh-cn/),
     new HtmlWebpackPlugin({
       inject: 'body',
@@ -154,12 +143,4 @@ module.exports = {
   },
   // generate source map without referer
   devtool: 'hidden-source-map',
-  node: {
-    dgram: 'empty',
-    fs: 'empty',
-    net: 'empty',
-    crypto: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
-  },
 };
