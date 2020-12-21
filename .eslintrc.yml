@@ -1,21 +1,31 @@
-parser: babel-eslint
+parser: '@typescript-eslint/parser'
 parserOptions:
-  ecmaVersion: 2018
   sourceType: module
-  ecmaFeatures:
-    jsx: true
+  project: './tsconfig.development.json'
 env:
   browser: true
   jest: true
+plugins:
+  - '@typescript-eslint'
 extends:
   - 'eslint:recommended'
-  - 'airbnb'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'airbnb-typescript/base'
   - 'prettier'
-  - 'prettier/react'
+  - 'prettier/@typescript-eslint'
 rules:
+  indent:
+    - error
+    - 2
   linebreak-style:
     - error
     - unix
+  quotes:
+    - error
+    - single
+  semi:
+    - error
+    - always
 settings:
   'import/resolver':
     node:

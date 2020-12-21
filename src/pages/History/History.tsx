@@ -5,13 +5,13 @@
 
 // package
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Dispatch } from 'redux';
 import { Alert, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 // internal
 import { HistoryRecord } from './History.interface';
-import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from '../../configure-store';
-import { Dispatch } from 'redux';
 import {
   ActionTimingAction,
   CancelTimingAction,
@@ -68,8 +68,8 @@ const history: HistoryRecord[] = [
 
 function History() {
   // redux
-  const state = useSelector((state: AppState) => ({
-    cost: state.demo.cost,
+  const state = useSelector((s: AppState) => ({
+    cost: s.demo.cost,
   }));
   const dispatch = useDispatch<
     Dispatch<ActionTimingAction | CancelTimingAction>

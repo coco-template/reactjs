@@ -22,11 +22,11 @@ if (process.env.NODE_ENV === 'production') {
       navigator.serviceWorker
         .register('/service-worker.js')
         .then(() => {
-          // tslint:disable-next-line:no-console
+          // eslint-disable-next-line no-console
           console.log('service worker register success!');
         })
         .catch(() => {
-          // tslint:disable-next-line:no-console
+          // eslint-disable-next-line no-console
           console.log('service worker register failure!');
         });
     });

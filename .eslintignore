@@ -81,7 +81,3 @@ typings/
 # Production
 dist
 build
-
-# none-js
-*.ts
-*.tsx
