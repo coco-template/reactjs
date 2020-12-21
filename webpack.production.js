@@ -11,12 +11,12 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external');
-const HtmlMinifyPlugin = require('@coco-platform/webpack-plugin-html-minify');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
+  .default;
 
 module.exports = {
   mode: 'production',
@@ -127,13 +127,8 @@ module.exports = {
     },
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true, // set to true if you want JS source maps
-      }),
+      new TerserPlugin(),
       new OptimizeCSSAssetsPlugin({}),
-      new HtmlMinifyPlugin(),
       new CompressionPlugin({
         test: /\.(js|css|html)$/,
         threshold: 1024,

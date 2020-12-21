@@ -6,10 +6,6 @@
     "dev": "NODE_ENV=development webpack-dev-server --inline --hot",
     "prebuild": "rm -rf dist",
     "build": "NODE_ENV=production webpack --config webpack.production.js",
-    "postbuild": "run-s workbox:inject workbox:copy",
-    "workbox:inject": "workbox injectManifest workbox-config.js",
-    "workbox:copy": "workbox copyLibraries dist/client/",
-    "tarball": "tar -zcvf static.tar.gz -C dist/client/ .",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
@@ -107,14 +103,13 @@
     "progress-bar-webpack-plugin": "^1.12.1",
     "react-refresh": "^0.9.0",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^5.0.3",
     "typescript": "^4.0.5",
-    "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^4.0.0",
     "webpack": "^5.2.0",
     "webpack-bundle-analyzer": "^3.0.4",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0",
-    "workbox-cli": "^5.0.0"
+    "webpack-dev-server": "^3.2.0"
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.6.0",
