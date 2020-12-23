@@ -7,11 +7,13 @@
 import { combineReducers } from 'redux';
 import { combineEpics } from 'redux-observable';
 // internal
-import { demoReducer } from './demo/demo.reducer';
-import { demoEpic } from './demo/demo.epic';
+import { historyReducer, historyEpic } from './history.slice';
+import { deviceReducer, deviceEpic } from './device.slice';
+
+// compose epic and reducers
+export const rootEpic = combineEpics(historyEpic, deviceEpic);
 
 export const rootReducer = combineReducers({
-  demo: demoReducer,
+  history: historyReducer,
+  device: deviceReducer,
 });
-
-export const rootEpic = combineEpics(demoEpic);

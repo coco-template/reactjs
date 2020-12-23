@@ -9,8 +9,8 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 // internal
-import { rootStore } from './configure-store';
-import withLazySuspense from './HOC/withLazySuspense';
+import { rootStore } from './rootstore';
+import withLazySuspense from './hoc/withLazySuspense';
 import './App.pcss';
 // scope
 const LazyHistoryWrapper = lazy(
@@ -22,6 +22,7 @@ const LazyDeviceWrapper = lazy(
 const LazyHistory = withLazySuspense(LazyHistoryWrapper);
 const LazyDevice = withLazySuspense(LazyDeviceWrapper);
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function App() {
   return (
     <Provider store={rootStore}>

@@ -11,13 +11,12 @@ import { Alert, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 // internal
 import { HistoryRecord } from './History.interface';
-import { AppState } from '../../configure-store';
 import {
-  ActionTimingAction,
-  CancelTimingAction,
-  DemoActionTypes,
-} from '../../redux/demo/demo.constant';
-
+  HistoryActionTypes,
+  ActiveTimingAction,
+  DeactiveTimingAction,
+} from '../../redux/history.slice';
+import { AppState } from '../../rootstore';
 // scope
 const columns: Array<ColumnProps<HistoryRecord>> = [
   {
@@ -66,23 +65,24 @@ const history: HistoryRecord[] = [
   },
 ];
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function History() {
   // redux
   const state = useSelector((s: AppState) => ({
-    cost: s.demo.cost,
+    cost: s.history.cost,
   }));
   const dispatch = useDispatch<
-    Dispatch<ActionTimingAction | CancelTimingAction>
+    Dispatch<ActiveTimingAction | DeactiveTimingAction>
   >();
 
   // effects
   useEffect(() => {
     dispatch({
-      type: DemoActionTypes.ActiveTiming,
+      type: HistoryActionTypes.ActiveTiming,
     });
 
     return () => {
-      dispatch({ type: DemoActionTypes.CancelTiming });
+      dispatch({ type: HistoryActionTypes.DeactiveTiming });
     };
   }, []);
 
