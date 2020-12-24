@@ -29,25 +29,25 @@ export const { increment, decrement } = historySlice.actions;
 export const historyReducer = historySlice.reducer;
 
 // history epic here
-export enum HistoryActionTypes {
+export enum ActionTypes {
   ActiveTiming = 'ActiveTiming',
   DeactiveTiming = 'DeactiveTiming',
 }
 
 export interface ActiveTimingAction {
-  type: HistoryActionTypes.ActiveTiming;
+  type: ActionTypes.ActiveTiming;
 }
 
 export interface DeactiveTimingAction {
-  type: HistoryActionTypes.DeactiveTiming;
+  type: ActionTypes.DeactiveTiming;
 }
 
 export const historyEpic: Epic = (action$) => {
   // terminate timing
-  const brake$ = action$.pipe(ofType(HistoryActionTypes.DeactiveTiming));
+  const brake$ = action$.pipe(ofType(ActionTypes.DeactiveTiming));
 
   return action$.pipe(
-    ofType(HistoryActionTypes.ActiveTiming),
+    ofType(ActionTypes.ActiveTiming),
     switchMap(() =>
       concat(
         timer(0, 1000).pipe(

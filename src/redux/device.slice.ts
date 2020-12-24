@@ -31,28 +31,27 @@ export const { resize } = deviceSlice.actions;
 export const deviceReducer = deviceSlice.reducer;
 
 // device epic here
-export enum DeviceActionTypes {
+export enum ActionTypes {
   ActiveDimensionMonitor = 'ActiveDimensionMonitor',
   DeactiveDimensionMonitor = 'DeactiveDimensionMonitor',
 }
 
 export interface ActiveDimensionMonitorAction {
-  type: DeviceActionTypes.ActiveDimensionMonitor;
+  type: ActionTypes.ActiveDimensionMonitor;
 }
 
 export interface DeactiveDimensionMonitorAction {
-  type: DeviceActionTypes.DeactiveDimensionMonitor;
+  type: ActionTypes.DeactiveDimensionMonitor;
 }
 
 export const deviceEpic: Epic = (action$) => {
   // terminate timing
-  const brake$ = action$.pipe(
-    ofType(DeviceActionTypes.DeactiveDimensionMonitor)
-  );
+  const brake$ = action$.pipe(ofType(ActionTypes.DeactiveDimensionMonitor));
 
   // takeUntil only terminate window resize listener, not action stream
   return action$.pipe(
-    ofType(DeviceActionTypes.ActiveDimensionMonitor),
+    // declare epic action here for bettern action infer
+    ofType(ActionTypes.ActiveDimensionMonitor),
     switchMap(() =>
       fromEvent(window, 'resize').pipe(
         throttleTime(100),
