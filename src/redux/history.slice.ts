@@ -1,9 +1,9 @@
 /* eslint-disable no-param-reassign */
 // package
-import { Epic, ofType } from 'redux-observable';
-import { createSlice } from '@reduxjs/toolkit';
+import { Epic } from 'redux-observable';
+import { createAction, createSlice } from '@reduxjs/toolkit';
 import { concat, timer, of } from 'rxjs';
-import { switchMap, takeUntil, map } from 'rxjs/operators';
+import { switchMap, takeUntil, map, filter } from 'rxjs/operators';
 
 // scope
 const historySlice = createSlice({
@@ -25,29 +25,23 @@ const historySlice = createSlice({
 });
 
 // a little bit weired duck
+// actions before
 export const { increment, decrement } = historySlice.actions;
+// reducer following
 export const historyReducer = historySlice.reducer;
 
 // history epic here
-export enum ActionTypes {
-  ActiveTiming = 'ActiveTiming',
-  DeactiveTiming = 'DeactiveTiming',
-}
-
-export interface ActiveTimingAction {
-  type: ActionTypes.ActiveTiming;
-}
-
-export interface DeactiveTimingAction {
-  type: ActionTypes.DeactiveTiming;
-}
+export const HistoryEpicActions = {
+  ActiveTiming: createAction('history/ActiveTiming'),
+  DeactiveTiming: createAction('history/DeactiveTiming'),
+};
 
 export const historyEpic: Epic = (action$) => {
   // terminate timing
-  const brake$ = action$.pipe(ofType(ActionTypes.DeactiveTiming));
+  const brake$ = action$.pipe(filter(HistoryEpicActions.DeactiveTiming.match));
 
   return action$.pipe(
-    ofType(ActionTypes.ActiveTiming),
+    filter(HistoryEpicActions.ActiveTiming.match),
     switchMap(() =>
       concat(
         timer(0, 1000).pipe(

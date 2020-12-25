@@ -1,9 +1,15 @@
 /* eslint-disable no-param-reassign */
 // package
-import { Epic, ofType } from 'redux-observable';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Epic } from 'redux-observable';
+import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fromEvent } from 'rxjs';
-import { switchMap, takeUntil, map, throttleTime } from 'rxjs/operators';
+import {
+  switchMap,
+  takeUntil,
+  map,
+  throttleTime,
+  filter,
+} from 'rxjs/operators';
 
 // interface
 interface ResizePayload {
@@ -27,31 +33,27 @@ const deviceSlice = createSlice({
 });
 
 // a little bit weired duck
+// actions before
 export const { resize } = deviceSlice.actions;
+// reducer following
 export const deviceReducer = deviceSlice.reducer;
 
 // device epic here
-export enum ActionTypes {
-  ActiveDimensionMonitor = 'ActiveDimensionMonitor',
-  DeactiveDimensionMonitor = 'DeactiveDimensionMonitor',
-}
-
-export interface ActiveDimensionMonitorAction {
-  type: ActionTypes.ActiveDimensionMonitor;
-}
-
-export interface DeactiveDimensionMonitorAction {
-  type: ActionTypes.DeactiveDimensionMonitor;
-}
+export const DeviceEpicActions = {
+  ActiveDimensionMonitor: createAction('device/ActiveDimensionMonitor'),
+  DeactiveDimensionMonitor: createAction('device/DeactiveDimensionMonitor'),
+};
 
 export const deviceEpic: Epic = (action$) => {
   // terminate timing
-  const brake$ = action$.pipe(ofType(ActionTypes.DeactiveDimensionMonitor));
+  const brake$ = action$.pipe(
+    filter(DeviceEpicActions.DeactiveDimensionMonitor.match)
+  );
 
   // takeUntil only terminate window resize listener, not action stream
   return action$.pipe(
     // declare epic action here for bettern action infer
-    ofType(ActionTypes.ActiveDimensionMonitor),
+    filter(DeviceEpicActions.ActiveDimensionMonitor.match),
     switchMap(() =>
       fromEvent(window, 'resize').pipe(
         throttleTime(100),

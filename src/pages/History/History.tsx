@@ -6,16 +6,11 @@
 // package
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Dispatch } from 'redux';
 import { Alert, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 // internal
 import { HistoryRecord } from './History.interface';
-import {
-  ActionTypes,
-  ActiveTimingAction,
-  DeactiveTimingAction,
-} from '../../redux/history.slice';
+import { HistoryEpicActions } from '../../redux/history.slice';
 // scope
 const columns: Array<ColumnProps<HistoryRecord>> = [
   {
@@ -67,22 +62,19 @@ const history: HistoryRecord[] = [
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function History() {
   // redux
+  // unnecessary for explicit action types
+  const dispatch = useDispatch();
   // eslint-disable-next-line no-undef
   const state = useSelector((s: AppState) => ({
     cost: s.history.cost,
   }));
-  const dispatch = useDispatch<
-    Dispatch<ActiveTimingAction | DeactiveTimingAction>
-  >();
 
   // effects
   useEffect(() => {
-    dispatch({
-      type: ActionTypes.ActiveTiming,
-    });
+    dispatch(HistoryEpicActions.ActiveTiming());
 
     return () => {
-      dispatch({ type: ActionTypes.DeactiveTiming });
+      dispatch(HistoryEpicActions.DeactiveTiming());
     };
   }, []);
 

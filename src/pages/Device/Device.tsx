@@ -7,24 +7,14 @@
 import React, { useEffect } from 'react';
 import { Alert, Drawer } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { Dispatch } from 'redux';
 
 // internal
-import {
-  ActionTypes,
-  ActiveDimensionMonitorAction,
-  DeactiveDimensionMonitorAction,
-} from '../../redux/device.slice';
-
-// interface
-type DeviceDispatcher = Dispatch<
-  ActiveDimensionMonitorAction | DeactiveDimensionMonitorAction
->;
+import { DeviceEpicActions } from '../../redux/device.slice';
 
 // internal
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function Device() {
-  const dispatch = useDispatch<DeviceDispatcher>();
+  const dispatch = useDispatch();
   // eslint-disable-next-line no-undef
   const state = useSelector((as: AppState) => ({
     width: as.device.width,
@@ -35,14 +25,10 @@ function Device() {
   const message = `The browser viewport width: ${state.width}, height: ${state.height}, Celebration!`;
 
   useEffect(() => {
-    dispatch({
-      type: ActionTypes.ActiveDimensionMonitor,
-    });
+    dispatch(DeviceEpicActions.ActiveDimensionMonitor());
 
     return () => {
-      dispatch({
-        type: ActionTypes.DeactiveDimensionMonitor,
-      });
+      dispatch(DeviceEpicActions.DeactiveDimensionMonitor());
     };
   }, []);
 
