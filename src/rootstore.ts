@@ -10,8 +10,6 @@ import { BehaviorSubject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 // internal
 import { rootReducer, rootEpic } from './redux';
-// state
-export type AppState = ReturnType<typeof rootReducer>;
 
 function createRootStore() {
   // epic middleware handle sideeffects

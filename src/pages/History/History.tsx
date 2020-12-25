@@ -12,11 +12,10 @@ import { ColumnProps } from 'antd/lib/table';
 // internal
 import { HistoryRecord } from './History.interface';
 import {
-  HistoryActionTypes,
+  ActionTypes,
   ActiveTimingAction,
   DeactiveTimingAction,
 } from '../../redux/history.slice';
-import { AppState } from '../../rootstore';
 // scope
 const columns: Array<ColumnProps<HistoryRecord>> = [
   {
@@ -68,6 +67,7 @@ const history: HistoryRecord[] = [
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function History() {
   // redux
+  // eslint-disable-next-line no-undef
   const state = useSelector((s: AppState) => ({
     cost: s.history.cost,
   }));
@@ -78,11 +78,11 @@ function History() {
   // effects
   useEffect(() => {
     dispatch({
-      type: HistoryActionTypes.ActiveTiming,
+      type: ActionTypes.ActiveTiming,
     });
 
     return () => {
-      dispatch({ type: HistoryActionTypes.DeactiveTiming });
+      dispatch({ type: ActionTypes.DeactiveTiming });
     };
   }, []);
 

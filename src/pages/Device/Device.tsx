@@ -11,11 +11,10 @@ import { Dispatch } from 'redux';
 
 // internal
 import {
-  DeviceActionTypes,
+  ActionTypes,
   ActiveDimensionMonitorAction,
   DeactiveDimensionMonitorAction,
 } from '../../redux/device.slice';
-import { AppState } from '../../rootstore';
 
 // interface
 type DeviceDispatcher = Dispatch<
@@ -26,6 +25,7 @@ type DeviceDispatcher = Dispatch<
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function Device() {
   const dispatch = useDispatch<DeviceDispatcher>();
+  // eslint-disable-next-line no-undef
   const state = useSelector((as: AppState) => ({
     width: as.device.width,
     height: as.device.height,
@@ -36,12 +36,12 @@ function Device() {
 
   useEffect(() => {
     dispatch({
-      type: DeviceActionTypes.ActiveDimensionMonitor,
+      type: ActionTypes.ActiveDimensionMonitor,
     });
 
     return () => {
       dispatch({
-        type: DeviceActionTypes.DeactiveDimensionMonitor,
+        type: ActionTypes.DeactiveDimensionMonitor,
       });
     };
   }, []);

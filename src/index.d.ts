@@ -1,4 +1,9 @@
+// internal
+import { rootReducer } from './redux';
+
 declare module '*.pcss';
 
-// redux devtools
-declare const __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any;
+// global, avoid redundant unnecessary import
+declare global {
+  declare type AppState = ReturnType<typeof rootReducer>;
+}
