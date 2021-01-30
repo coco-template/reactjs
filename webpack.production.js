@@ -45,12 +45,18 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|mjs|mjsx|ts|tsx)$/,
-        include: path.resolve(process.cwd(), 'src'),
+        exclude: /node_modules/,
         use: [
           {
             loader: require.resolve('babel-loader'),
             options: {
               cacheDirectory: true,
+            },
+          },
+          {
+            loader: require.resolve('@linaria/webpack-loader'),
+            options: {
+              sourceMap: true,
             },
           },
         ],
@@ -59,7 +65,7 @@ module.exports = {
         test: /\.p?css$/,
         exclude: /node_modules/,
         use: [
-          MiniCssExtractPlugin.loader,
+          { loader: MiniCssExtractPlugin.loader },
           {
             loader: require.resolve('css-loader'),
             options: {
@@ -76,12 +82,8 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: [
-          path.resolve(process.cwd(), 'src'),
-          path.resolve(process.cwd(), 'public'),
-        ],
         use: [
-          MiniCssExtractPlugin.loader,
+          { loader: MiniCssExtractPlugin.loader },
           { loader: require.resolve('css-loader') },
         ],
       },

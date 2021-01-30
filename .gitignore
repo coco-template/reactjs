@@ -66,13 +66,9 @@ typings/
 # Production
 dist
 build
-*.tar.gz
 
 # Compilation
 # postcss modules compile
-/src/**/*.pcss.json
-/lib
-/es
-/bundle
-/native
 .awcache
+# linara
+.linaria-cache

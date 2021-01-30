@@ -49,6 +49,12 @@ module.exports = {
               plugins: ['react-refresh/babel'],
             },
           },
+          {
+            loader: require.resolve('@linaria/webpack-loader'),
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {

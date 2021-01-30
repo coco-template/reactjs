@@ -6,6 +6,7 @@
 // package
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { styled } from '@linaria/react';
 import { Alert, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 // internal
@@ -59,6 +60,10 @@ const history: HistoryRecord[] = [
   },
 ];
 
+const Box = styled.article`
+  border-bottom: 1px solid red;
+`;
+
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function History() {
   // redux
@@ -82,7 +87,7 @@ function History() {
   const message = `此页面停留 ${state.cost} 秒钟`;
 
   return (
-    <article>
+    <Box>
       <Alert message={message} />
       <Table
         dataSource={history}
@@ -90,7 +95,7 @@ function History() {
         pagination={false}
         bordered
       />
-    </article>
+    </Box>
   );
 }
 
