@@ -9,21 +9,21 @@ const webpack = require('webpack');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
-const InjectExternalPlugin = require('@coco-platform/webpack-plugin-inject-external')
-  .default;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const {
+  InjectExternalPlugin,
+} = require('@coco-platform/webpack-plugin-inject-external');
 
 module.exports = {
   mode: 'development',
   target: 'web',
   amd: false,
   node: false,
-  entry: {
-    main: ['./src/main.tsx'],
-  },
+  // force single entry within single-spa
+  entry: './src/main.tsx',
   output: {
-    path: path.resolve(process.cwd(), 'dist', 'client'),
+    path: path.resolve(process.cwd(), './dist/client'),
     publicPath: '/',
     filename: 'static/script/[name].bundle.js',
     chunkFilename: 'static/script/[id]_[name].chunk.js',
@@ -41,7 +41,6 @@ module.exports = {
       {
         test: /\.(js|jsx|mjs|mjsx|ts|tsx)$/,
         exclude: /node_modules/,
-        include: path.resolve(process.cwd(), 'src'),
         use: [
           {
             loader: require.resolve('babel-loader'),
@@ -73,10 +72,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: [
-          path.resolve(process.cwd(), 'src'),
-          path.resolve(process.cwd(), 'public'),
-        ],
+        include: /node_modules/,
         use: [
           { loader: require.resolve('style-loader') },
           { loader: require.resolve('css-loader') },
@@ -105,8 +101,8 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       inject: 'body',
-      template: path.resolve(process.cwd(), 'public', 'index.html'),
-      favicon: path.join(process.cwd(), 'public', 'favicon.ico'),
+      template: path.resolve(process.cwd(), './public/index.html'),
+      favicon: path.join(process.cwd(), './public/favicon.ico'),
     }),
     new InjectExternalPlugin({
       env: 'development',

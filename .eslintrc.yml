@@ -10,7 +10,7 @@ plugins:
 extends:
   - 'eslint:recommended'
   - 'plugin:@typescript-eslint/recommended'
-  - 'airbnb-typescript/base'
+  - 'airbnb-typescript'
   - 'prettier'
   - 'prettier/@typescript-eslint'
 rules:

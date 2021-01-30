@@ -14,21 +14,3 @@ import App from './App';
 const container = document.querySelector('.main');
 
 render(<App />, container);
-
-// register service worker only in production
-if (process.env.NODE_ENV === 'production') {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker
-        .register('/service-worker.js')
-        .then(() => {
-          // eslint-disable-next-line no-console
-          console.log('service worker register success!');
-        })
-        .catch(() => {
-          // eslint-disable-next-line no-console
-          console.log('service worker register failure!');
-        });
-    });
-  }
-}
